@@ -12,4 +12,5 @@ Requirements
 ************
 
 Tested on the following boards:
+
 - nrf52840DK_nrf52840
