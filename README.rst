@@ -1,44 +1,15 @@
-.. _blinky-sample:
-
-Blinky
-######
+NRFX PWM Simple Example
+#######################
 
 Overview
 ********
 
-Blinky is a simple application which blinks an LED forever using the :ref:`GPIO
-API <gpio_api>`. The source code shows how to configure GPIO pins as outputs,
-then turn them on and off.
-
-See :ref:`pwm-blinky-sample` for a sample which uses the PWM API to blink an
-LED.
-
-.. _blinky-sample-requirements:
+This is a simple example showing how to use the nrfx_pwm driver to access the NRF_PWM module in a more direct way compared to using the native Zephyr PWM driver. 
+The example configures two channels and implements a function to set the duty cycle for these channels when needed. 
+The main loop updates the duty cycle based on a rolling counter. 
 
 Requirements
 ************
 
-You will see this error if you try to build Blinky for an unsupported board:
-
-.. code-block:: none
-
-   Unsupported board: led0 devicetree alias is not defined
-
-The board must have an LED connected via a GPIO pin. These are called "User
-LEDs" on many of Zephyr's :ref:`boards`. The LED must be configured using the
-``led0`` :ref:`devicetree <dt-guide>` alias. This is usually done in the
-:ref:`BOARD.dts file <devicetree-in-out-files>` or a :ref:`devicetree overlay
-<set-devicetree-overlays>`.
-
-Building and Running
-********************
-
-Build and flash Blinky as follows, changing ``reel_board`` for your board:
-
-.. zephyr-app-commands::
-   :zephyr-app: samples/basic/blinky
-   :board: reel_board
-   :goals: build flash
-   :compact:
-
-After flashing, the LED starts to blink. Blinky does not print to the console.
+Tested on the following boards:
+- nrf52840DK_nrf52840
